@@ -4,13 +4,13 @@ import { StarIcon } from "@heroicons/react/solid";
 
 function InfoCard({ img, location, title, description, star, price, total }) {
   return (
-    <div className="flex px-2 pr-4 transition duration-200 ease-out border-b cursor-pointer py-7 hover:opacity-80 hover:shadow-lg first:border-t">
+    <div className="flex px-2 pr-4 transition duration-200 ease-out border-b cursor-pointer py-7 hover:scale-105 hover:shadow-lg first:border-t">
       <div className="relative flex-shrink-0 w-40 h-auto md:h-52 md:w-80">
         <Image
           src={img}
           layout="fill"
           objectFit="cover"
-          className="rounded-2xl"
+          className="rounded-2xl hover:scale-105"
         />
       </div>
       <div className="flex flex-col flex-grow pl-5">

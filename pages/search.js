@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -19,7 +20,14 @@ function Search({ searchResults }) {
       <main className="flex">
         <section className="flex-grow px-6 pt-14">
           <p className="text-xs">
-            300+ Stays - {range} - for {noOfGuest} guests
+            300+ Stays{" "}
+            <span className="p-2 bg-gray-100 border shadow-sm rounded-xl">
+              {range}
+            </span>{" "}
+            for{" "}
+            <span className="p-2 bg-gray-100 border shadow-sm rounded-xl">
+              {noOfGuest} - guests{" "}
+            </span>
           </p>
           <h1 className="mt-2 mb-6 text-3xl font-semibold">
             Stays in {location}
@@ -31,7 +39,7 @@ function Search({ searchResults }) {
             <p className="button">Rooms and Beds</p>
             <p className="button">More filters</p>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             {searchResults.map(
               ({ img, location, title, description, star, price, total }) => (
                 <InfoCard
@@ -47,6 +55,9 @@ function Search({ searchResults }) {
               )
             )}
           </div>
+        </section>
+        <section className="hidden lg:inline-flex lg:min-w-[600px]">
+          <Map searchResults={searchResults} />
         </section>
       </main>
 
